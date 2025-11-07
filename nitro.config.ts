@@ -4,5 +4,8 @@ import { defineNitroConfig } from "nitropack/config"
 export default defineNitroConfig({
   compatibilityDate: "latest",
   srcDir: "server",
-  imports: false
+  imports: false,
+  runtimeConfig: {
+    jwtSecret: "api_token"
+  }
 });
