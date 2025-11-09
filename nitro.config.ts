@@ -1,11 +1,14 @@
-import { defineNitroConfig } from "nitropack/config"
-
-// https://nitro.build/config
+//https://nitro.unjs.io/config
 export default defineNitroConfig({
-  compatibilityDate: "latest",
+  compatibilityDate: '2025-11-09',
   srcDir: "server",
-  imports: false,
   runtimeConfig: {
     jwtSecret: "api_token"
+  },
+  storage: {
+    kv: {
+      driver: "fs",
+      base: "./data/kv"
+    }
   }
 });
