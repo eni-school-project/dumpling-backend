@@ -24,8 +24,23 @@ export default defineEventHandler(async (event) => {
 		const [response] = await connection.query({ sql: TEST_SQL_REQUEST, rowsAsArray: true });
 
 		if (response[0][0] == 2) {
+			const user: User = {
+				connectionType: body.connectionType,
+				loginDate: new Date().toISOString()
+			};
+
+			const token: string = await useSignToken(user);
+
+			setCookie(event, 'auth_token', token, {
+				httpOnly: true,
+				sameSite: 'lax',
+				path: '/',
+				maxAge: 60 * 60
+			});
+
 			await connection.end();
-			return { success: true }
+
+			return { success: true, token };
 		}
 		else {
 			await connection.end();
@@ -49,8 +64,23 @@ export default defineEventHandler(async (event) => {
 		const { rows } = await connection.query({ text: TEST_SQL_REQUEST, rowMode: 'array' });
 
 		if (rows[0][0] == 2) {
+			const user: User = {
+				connectionType: body.connectionType,
+				loginDate: new Date().toISOString()
+			};
+
+			const token: string = await useSignToken(user);
+
+			setCookie(event, 'auth_token', token, {
+				httpOnly: true,
+				sameSite: 'lax',
+				path: '/',
+				maxAge: 60 * 60
+			});
+
 			await connection.end();
-			return { success: true }
+
+			return { success: true, token };
 		}
 		else {
 			await connection.end();
