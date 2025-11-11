@@ -17,4 +17,6 @@ type User = {
 	loginDate: string
 }
 
-export { ConnectionType, type ConnectionCredentials, type User }
+type StorageValue = null | string | number | boolean | object;
+
+export { ConnectionType, type ConnectionCredentials, type User, type StorageValue }
