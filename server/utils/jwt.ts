@@ -1,4 +1,4 @@
-import { JWTPayload, SignJWT, jwtVerify } from "jose";
+import { type JWTPayload, SignJWT, jwtVerify } from "jose";
 
 const secret: Uint8Array<ArrayBuffer> = new TextEncoder().encode(process.env.NITRO_JWT_SECRET);
 

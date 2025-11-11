@@ -1,6 +1,5 @@
 import { defineEventHandler, getCookie, getHeader } from "h3";
-import { JWTPayload } from "jose";
-import { useVerifyToken } from "../utils/jwt";
+import type { JWTPayload } from "jose";
 
 export default defineEventHandler(async (event) => {
 	const tokenFromCookie = getCookie(event, 'auth_token');
