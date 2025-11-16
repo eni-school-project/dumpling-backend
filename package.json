@@ -7,13 +7,16 @@
     "preview": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@types/node": "^24.10.0",
+    "@types/node": "^24.10.1",
     "@types/pg": "^8.15.6",
     "nitropack": "latest"
   },
   "dependencies": {
+    "cron": "^4.3.4",
     "jose": "^6.1.0",
     "mysql2": "^3.15.3",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
   }
 }
