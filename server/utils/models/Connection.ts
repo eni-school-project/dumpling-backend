@@ -16,6 +16,7 @@ export function initConnectionModel(sequelize: Sequelize) {
     {
       connection_id: {
         type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
       },
       connection_type: {
