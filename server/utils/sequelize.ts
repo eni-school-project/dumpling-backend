@@ -1,14 +1,12 @@
 import { ConnectionError, Sequelize } from 'sequelize';
-// import { ConnectionCredentials } from './types';
+import { ConnectionCredentials } from './types';
 
-export async function useSequelize(credentials: ConnectionCredentials): Promise<Sequelize | null> {
+export async function useSequelize(credentials: ConnectionCredentials): Promise<Sequelize> {
   const sequelize = new Sequelize(
     {
+      ...credentials,
       dialect: credentials.connectionType,
-      host: credentials.host,
       port: credentials.port ?? undefined,
-      username: credentials.user,
-      password: credentials.password,
       database: credentials.database ?? undefined,
       pool: {
         max: 5,
@@ -26,7 +24,12 @@ export async function useSequelize(credentials: ConnectionCredentials): Promise<
     if (error instanceof ConnectionError) {
       console.log(error);
     }
-    return;
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Server error',
+      message: 'Couldn\'t connect to database',
+      fatal: true,
+    });
   }
 
   return sequelize;

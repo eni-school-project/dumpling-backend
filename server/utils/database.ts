@@ -2,9 +2,9 @@ import { ConnectionError, Sequelize } from 'sequelize';
 
 let sequelize: Sequelize | null = null;
 
-export async function useDatabase(): Promise<Sequelize | null> {
+export async function useDatabase(): Promise<Sequelize> {
   if (sequelize) return sequelize;
-  
+
   const config = useRuntimeConfig();
   sequelize = new Sequelize(
     config.databaseCredentials || process.env.NITRO_DATABASE_CREDENTIALS,
@@ -28,15 +28,20 @@ export async function useDatabase(): Promise<Sequelize | null> {
   });
 
   try {
-    await sequelize.sync();
+    await sequelize.sync({ force: true });
     console.log('Connected to main database :)\n');
   } catch (error) {
     if (error instanceof ConnectionError) {
       console.log('Main database connection error >:(\n');
       console.log(error);
     }
-    return null;
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Server error',
+      message: 'Couldn\'t connect to database',
+      fatal: true,
+    });
   }
-  
+
   return sequelize;
 }
