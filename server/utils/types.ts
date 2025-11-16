@@ -4,12 +4,13 @@ enum ConnectionType {
 };
 
 type ConnectionCredentials = {
-	connectionType: ConnectionType,
+  connectionType: ConnectionType,
 	host: string,
 	port?: number,
 	user: string,
 	password: string,
 	database?: string,
+  [x: string]: any;
 }
 
 type User = {
