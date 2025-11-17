@@ -124,7 +124,7 @@ throw createError({
     ```json
     {
       "connectionName": "string",
-      "connectionType": "mysql" | "postgres",
+      "connectionType": "mysql | postgres",
       "host": "string",
       "port?": "number",
       "user": "string",
