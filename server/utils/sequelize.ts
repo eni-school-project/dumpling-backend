@@ -28,7 +28,6 @@ export async function useSequelize(credentials: ConnectionCredentials): Promise<
       statusCode: 500,
       statusMessage: 'Server error',
       message: 'Couldn\'t connect to database',
-      fatal: true,
     });
   }
 
