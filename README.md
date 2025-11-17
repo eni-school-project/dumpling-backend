@@ -64,18 +64,6 @@ throw createError({
 > [!NOTE]
 > All of the api routes are prefixed by `/api/`.
 
-<!-- > [!TIP]
-> Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions. -->
-
 1. `GET /connections`
 
     Returns the lists of all the connections in an array
@@ -89,7 +77,7 @@ throw createError({
     ```json
     {
       "connectionName": "string",
-      "connectionType": "mysql" | "postgres",
+      "connectionType": "mysql | postgres",
       "host": "string",
       "port?": "number",
       "user": "string",
@@ -98,8 +86,8 @@ throw createError({
     }
     ```
 
-    > [!NOTE]
-    > The properties not having `?` in their names are required.
+> [!NOTE]
+> The properties not having `?` in their names are required.
 
 3. `GET /connections/[id_or_name]`
 
