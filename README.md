@@ -91,10 +91,10 @@ throw createError({
       "connectionName": "string",
       "connectionType": "mysql" | "postgres",
       "host": "string",
-      "port"?: "number",
+      "port?": "number",
       "user": "string",
       "password": "string",
-      "database"?: "string",
+      "database?": "string",
     }
     ```
 
@@ -126,10 +126,10 @@ throw createError({
       "connectionName": "string",
       "connectionType": "mysql" | "postgres",
       "host": "string",
-      "port"?: "number",
+      "port?": "number",
       "user": "string",
       "password": "string",
-      "database"?: "string",
+      "database?": "string",
     }
     ```
 
