@@ -88,13 +88,13 @@ throw createError({
 
     ```json
     {
-      connectionName: "string",
-      connectionType: "mysql" | "postgres",
-      host: "string",
-      port?: "number",
-      user: "string",
-      password: "string",
-      database?: "string",
+      "connectionName": "string",
+      "connectionType": "mysql" | "postgres",
+      "host": "string",
+      "port"?: "number",
+      "user": "string",
+      "password": "string",
+      "database"?: "string",
     }
     ```
 
@@ -123,13 +123,13 @@ throw createError({
 
     ```json
     {
-      connectionName: "string",
-      connectionType: "mysql" | "postgres",
-      host: "string",
-      port?: "number",
-      user: "string",
-      password: "string",
-      database?: "string",
+      "connectionName": "string",
+      "connectionType": "mysql" | "postgres",
+      "host": "string",
+      "port"?: "number",
+      "user": "string",
+      "password": "string",
+      "database"?: "string",
     }
     ```
 
@@ -143,7 +143,7 @@ throw createError({
 
     ```json
     {
-      success: true
+      "success": true
     }
     ```
 
@@ -169,8 +169,8 @@ throw createError({
 
     ```json
     {
-      oldPassword: "string",
-      newPassword: "string"
+      "oldPassword": "string",
+      "newPassword": "string"
     }
     ```
 
